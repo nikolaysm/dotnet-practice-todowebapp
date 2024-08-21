@@ -1,37 +1,37 @@
 @page
 @model ToDoWebApp_CodeBehind.Pages.AddModel
 @{
-    ViewData["Title"] = "Add page";
+	ViewData["Title"] = "Add page";
 }
 
-@* Note: Many of the "class»" Instances reference Bootstrap sytles. *@
-@* Begin render add code block *@
+@* Note: Many of the "class=" instances reference Bootstrap sytles. *@
 
-<form nethod="post">
-    @*The TeDoModels.Id Is here so the full data model is represented on the page.
-        The database behind the API will assign the id. *@
-    <input hidden asp-for="ToDoModels.id" />
-    <div class="border p-3 mt-4" style="width: 50%">
-        <div class="row pb-2">
-            <h2 classm"text-primary pl-3">Add ToDo</h2>
-            <hr />
-        </div>
-        <div class="ab-3">
-            <label asp-for="ToDoModels.name" class="h-5"></label><br/>
-            @* Empty text box for the name of the Todo to be added. *@
-            <input type="text" asp-for="ToDoModels.name" />
-            <span asp-validation-for="ToDoModels.name" class="text-danger"></span>
-        </div>
-        <div class="ab-3">
-            <label asp-for="ToDoModels.inStock" class="h-5"></label><br/>
-            @* Render the true/false inStock state fron the record in an editable checkbox. *@
-            <input type="checkbox" asp-for="ToDoModels.inStock" style="width:20px; helght:20px" /> 
-            <label class-"h7"><i class-"bi bi-arrow-left"></i> Check the box if it's avallable.</label>
-            <span asp-validation-for="ToDoModels.inStock" class="text-danger"></span>
-        </div>
-        @* Submit the addition or return to the Index page If the Add is cancelled.*@
-        <button type="submit" class="btn btn-primary" style="width:150px;"›Create</button>
-        <a asp-page="Index" class="btn btn-secondary" style="width: 150px;">Cancel</a>
-    </div>
+@* Begin render Add code block *@
+<form method="post">
+    @* 	The ToDoModels.id is here so the full data model is represented on the page.
+		The database behind the API will assign the id. *@
+	<input hidden asp-for="ToDoModels.id" />
+	<div class="border p-3 mt-4" style="width:50%">
+		<div class="row pb-2">
+			<h2 class="text-primary pl-3">Add ToDo</h2>
+			<hr />
+		</div>
+		<div class="mb-3">
+			<label asp-for="ToDoModels.name" class="h5"></label><br/>
+			@* Empty text box for the name of the todo to be added. *@
+			<input type="text" asp-for="ToDoModels.name" />
+			<span asp-validation-for="ToDoModels.name" class="text-danger"></span>
+		</div>
+		<div class="mb-3">
+			<label asp-for="ToDoModels.isCompleted" class="h5"></label><br/>
+			@* Render the true/false isCompleted state from the record in an editable checkbox. *@
+			<input type="checkbox" asp-for="ToDoModels.isCompleted" style="width:20px; height:20px" />
+			<label class="h7"><i class="bi bi-arrow-left"></i>  Check the box if it's available.</label>
+			<span asp-validation-for="ToDoModels.isCompleted" class="text-danger"></span>
+		</div>
+		@* Submit the addition or return to the Index page if the Add is cancelled.*@
+		<button type="submit" class="btn btn-primary" style="width:150px;">Create</button>
+		<a asp-page="Index" class="btn btn-secondary" style="width:150px;">Cancel</a>
+	</div>
 </form>
 @* End render Add code block *@

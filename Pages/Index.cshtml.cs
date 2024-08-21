@@ -41,9 +41,6 @@ namespace ToDoWebApp_CodeBehind.Pages
                 {
                     using var contentStream = await response.Content.ReadAsStreamAsync();
 
-                    Debug.WriteLine("Debug info: variable x = test");
-                    Trace.WriteLine("Trace info: variable x = test line");
-
                     ToDoModels = await JsonSerializer.DeserializeAsync<IEnumerable<ToDoModel>>(contentStream);
                 }
             }
