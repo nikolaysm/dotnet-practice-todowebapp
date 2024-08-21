@@ -25,7 +25,7 @@ This repository demonstrates how to integrate a To-Do List API with a .NET web a
 1. **Clone the repository:**
 
     ```sh
-    git clone https://github.com/nikolaysm/todo-razor-page-integration.git
+    git clone https://github.com/nikolaysm/dotnet-practice-todowebapp.git
     ```
 
 2. **Navigate to the project directory:**
