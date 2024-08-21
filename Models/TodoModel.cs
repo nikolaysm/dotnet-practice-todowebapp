@@ -1,38 +1,21 @@
 using System.Text.Json.Serialization;
-using System.Security.Cryptography;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace ToDoWebApp_CodeBehind.Models;
 
-public record ToDoModel
+public class ToDoModel
 {
-    [JsonConstructor]
-    public ToDoModel(int Id, string Name, bool InStock)
-    {
-        id = Id;
-        name = Name;
-        inStock = InStock;
-    }
-
-    // Parameterless constructor for instantiation
-    public ToDoModel(string Name, bool InStock)
-        : this(GenerateUniqueId(), Name, InStock)
-    {
-
-    }
-
+    [Key]
     [JsonPropertyName("id")]
     public int id { get; set; }
 
     [JsonPropertyName("taskName")]
+    [Display(Name="Name")]
     public string name { get; set; }
     
     [JsonPropertyName("completed")]
-    public bool inStock { get; set; }
-
-    private static int GenerateUniqueId()
-    {
-        // Generate a Guid and take the first 4 bytes, converting them to an integer
-        var guid = Guid.NewGuid();
-        return BitConverter.ToInt32(guid.ToByteArray(), 0);
-    }
+    [Display(Name ="Completed?")]
+    public bool isCompleted { get; set; }
 }
